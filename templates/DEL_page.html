@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<main class="container mt-5">
+         <h1 class="mb-3" style="text-align: center">Список IP Адресов:</h1>
+        {% if base|length > 0 %}
+             <table class="table">
+                    <tr>
+                        <th>№</th>
+                        <th>Имя PC</th>
+                        <th>IP адрес</th>
+                        <th>MAC адрес</th>
+                        <th></th>
+                    </tr>
+            {% for el in base %}
+                    <tr>
+                        <td>{{ el.id }}</td>
+                        <td>{{ el.namePC }}</td>
+                        <td>{{ el.IP }}</td>
+                        <td>{{ el.MAC }}</td>
+                        <td><a href="/DEL/{{ el.id }}" class="btn btn-danger">Удалить</a></td>
+                    </tr>
+            {% endfor %}
+            </table>
+        {% else %}
+            <p>нет данных</p>
+        {% endif %}
+    </main>
+<body>
+
+</body>
+</html>
